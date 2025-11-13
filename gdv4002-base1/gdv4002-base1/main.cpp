@@ -21,31 +21,22 @@ int main(void) {
 	// Setup game scene objects here
 	//
 	
-	addObject("player");
-	addObject("player2");
+	addObject("player", glm::vec2(-1.5f, 0.0f), 0.0f, glm::vec2(0.5f, 0.5f), "Resources\\Textures\\player1_ship.png");
+
+	addObject("enemy", glm::vec2(0.0f, 0.0f), 0.0f, glm::vec2(0.75f, 0.75f), "Resources\\Textures\\alien01.png");
+
+	addObject("enemy", glm::vec2(1.0f, 0.0f), 0.0f, glm::vec2(0.75f, 0.75f), "Resources\\Textures\\alien01.png");
+
+	addObject("enemy", glm::vec2(2.0f, 0.0f), 0.0f, glm::vec2(0.75f, 0.75f), "Resources\\Textures\\alien01.png");
+
 
 	GameObject2D* player1Object = getObject("player");
 
-
-	if (player1Object != nullptr) {
-		player1Object->position = glm::vec2(-1.0f, 1.0f);
-		player1Object->orientation = glm::radians(45.0f);
-		player1Object->textureID = loadTexture("Resources\\Textures\\bumblebee.png");
-
-	}
-
 	GameObject2D* player2Object = getObject("player2");
-
-	if (player2Object != nullptr) {
-		player2Object->position = glm::vec2(1.5f, 1.0f);
-		player2Object->orientation = glm::radians(30.0f);
-		player2Object->size = glm::vec2(3.0f, 3.0f);
-
-	}
-
 
 
 	// Enter main loop - this handles update and render calls
+	listGameObjectKeys();
 	setUpdateFunction(myUpdate);
 	engineMainLoop();
 
@@ -57,11 +48,6 @@ int main(void) {
 }
 
 void myUpdate(GLFWwindow* window, double tDelta) {
-	GameObject2D* player = getObject("player");
-	float anglesPerSecond = glm::radians(45.0f);
-	float playerVelocity = 2.0f;
-	float playerRotationSpeed = glm::radians(90.0f);
-	player->orientation += playerRotationSpeed * tDelta;
 	
 }
 
